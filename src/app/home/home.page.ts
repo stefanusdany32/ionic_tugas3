@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalvarService } from '../globalvar.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  constructor(private global : GlobalvarService) {}
+  judul : string = ""
+  isi : string = ""
+  tgl : Date 
+  submit(){
+    this.global.add(this.judul,this.isi,this.tgl);
+  }
 }
